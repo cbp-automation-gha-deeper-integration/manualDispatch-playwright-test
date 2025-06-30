@@ -8,8 +8,8 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@playwright/test": "^1.39.0",  // Update this to the latest version
-    "typescript": "^5.2.2",        // Update this to the latest version
-    "ts-node": "^10.9.1"           // Update this to the latest version
+    "@playwright/test": "^1.39.0",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1"
   }
 }
