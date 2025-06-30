@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2018",  // Ensure it targets a version that supports async/await naturally
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "lib": ["ESNext", "DOM"]  // Include appropriate libs
   },
   "include": ["tests/**/*.ts"],
   "exclude": ["node_modules"]
