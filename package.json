@@ -1,0 +1,15 @@
+{
+  "name": "udemy-app-playwright-ts",
+  "version": "1.0.0",
+  "description": "Playwright tests for basic Udemy-like application validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",  // Update this to the latest version
+    "typescript": "^5.2.2",        // Update this to the latest version
+    "ts-node": "^10.9.1"           // Update this to the latest version
+  }
+}
