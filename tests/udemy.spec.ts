@@ -11,5 +11,7 @@ test('Homepage displays course categories', async ({ page }) => {
   expect(firstCategoryName).toBe('Popular Courses'); // Example: check the name of the category
 
   const featuredCourses = await page.locator('.featured-course');
-  await expect(featuredCourses).toHaveCountGreaterThan(0);
+  // Check that there is at least one featured course
+  const courseCount = await featuredCourses.count();
+  expect(courseCount).toBeGreaterThan(0); // or use expect(featuredCourses).toHaveCount(n); for a specific number
 });
