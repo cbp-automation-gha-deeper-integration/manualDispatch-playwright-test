@@ -4,9 +4,9 @@ name: My workflow
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - '**'
+  # push:
+  #   branches:
+  #     - '**'
 
 jobs:
   build:
