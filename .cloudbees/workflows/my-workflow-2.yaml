@@ -1,0 +1,46 @@
+
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: My workflow
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+    needs:
+      - approval-job
+  approval-job:
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    with:
+      approvers: ff67605a-b3ca-11ef-9745-42010a83ae7d
+      disallowLaunchByUser: false
+      instructions: some
+      approvalInputs: |
+        in1:
+          type: string
+          required: true
+          description: One of the required approver inputs
+        in2:
+          type: number
+          description: a numeric input
+        in3:
+          type: choice
+          options:
+            - op1
+            - op2
+  echo-approval-inputs:
+    steps:
+      - uses: docker://golang:1.20.3-alpine3.17
+        name: Echo approver inputs
+        shell: sh
+        run: |
+          echo comments: ${{needs.approval-job.outputs.comments }}
+          echo in1 input: ${{ fromJSON(needs.approval-job.outputs.approvalInputValues).in1 }}
+          echo in2 input: ${{ fromJSON(needs.approval-job.outputs.approvalInputValues).in2 }}
+    needs:
+      - approval-job
