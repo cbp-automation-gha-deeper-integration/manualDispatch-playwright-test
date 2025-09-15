@@ -1,5 +1,4 @@
 name: Github Workflow- Playwright
-
 on:
   workflow_dispatch:
   # push:
