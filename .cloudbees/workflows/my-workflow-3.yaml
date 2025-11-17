@@ -21,14 +21,14 @@ jobs:
         shell: sh
 
       - name: without quotes
-        if: ${{ inputs.username =~ 'fmautomation' }}
+        if: ${{ contains(inputs.username, 'fmautomation') }}
         run: |
           echo "hello world"          
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
 
       - name: With quotes
-        if: "${{ inputs.username =~ 'fmautomation' }}"
+        if: ${{ contains(inputs.username, 'fmautomation') }}
         run: |
           echo "hello world"
           echo "${{ inputs.username }}"
