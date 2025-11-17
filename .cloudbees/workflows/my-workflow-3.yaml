@@ -16,8 +16,7 @@ jobs:
           echo "hello world"
           echo "${{ inputs.username }}"
          
-          echo "${{ inputs.username =~ 'fmautomation@beescloud.com' }}"
-          echo ${{ inputs.username =~ 'fmautomation@beescloud.com' }}
+          
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
 
